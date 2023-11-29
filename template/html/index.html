@@ -36,7 +36,6 @@
       <div data-loader="circle-side-2"></div>
     </div>
     <!-- /Loader_form -->
-
     <header>
       <a
         id="menu-button-mobile"
@@ -187,7 +186,7 @@
                         </div>
                         <div class="step">
                           <h3 class="main_question"><strong>2/10</strong>Current Accommodation</h3>
-                          <p>Where are you staying tonight? / Where did you stay last night (if surveyed on October 27th)?</p>                      
+                          <h3>Where are you staying tonight? / Where did you stay last night (if surveyed on October 27th)?</h3>                      
                           <div class="form-group select">
                               <label for="current_accommodation" class="select-label">Select your current accommodation:</label>
                               <div class="styled-select">
@@ -215,7 +214,7 @@
                               <input type="text" id="probable_location" name="probable_location" class="form-control" placeholder="Enter location">
                           </div>                      
                           <div class="form-group">
-                              <p>C1. Do you have access to a permanent residence where you can safely stay as long as you want?</p>
+                              <h3> Do you have access to a permanent residence where you can safely stay as long as you want?</h3>
                               <div class="form-group radio-group">
                                   <label class="radio-label">
                                       <input type="radio" name="permanent_residence" value="Yes"> Yes
@@ -231,23 +230,349 @@
                                   </label>
                               </div>
                           </div>
-                      </div>                      
-                      <script>
-                      function checkAccommodation(selectElement) {
-                          var unsureLocationInput = document.getElementById('unsure-location');
-                          if(selectElement.value === 'Unsure') {
-                              unsureLocationInput.style.display = 'block';
-                          } else {
-                              unsureLocationInput.style.display = 'none';
-                          }
-                      }
-                      </script>                    
+                        </div>                      
+                        <script>
+                        function checkAccommodation(selectElement) {
+                            var unsureLocationInput = document.getElementById('unsure-location');
+                            if(selectElement.value === 'Unsure') {
+                                unsureLocationInput.style.display = 'block';
+                            } else {
+                                unsureLocationInput.style.display = 'none';
+                            }
+                        }
+                        </script> 
+                        <div class="step">
+                          <h3 class="main_question"><strong>Question 2</strong></h3>
+                          <h3>How old are you? [OR] What year were you born? [If unsure, ask for best estimate]</h3>
+                          
+                          <div class="form-group" >
+                            <label for="age">AGE:</label>
+                            <input type="number" id="age" name="age" class="form-control" placeholder="Enter age" style="max-width: 200px;">
+                          </div>
+                        
+                          <div class="form-group">
+                            <label for="year_born">OR YEAR BORN:</label>
+                            <input type="number" id="year_born" name="year_born" class="form-control" placeholder="Enter year of birth" min="1960" max="2023" style="max-width: 200px;">
+                          </div>
+                                                  
+                          <div class="form-group checkbox_questions">
+                            <label>
+                              <input name="age_unknown" type="checkbox" value="dont_know" class="icheck">DON’T KNOW
+                            </label>
+                          </div>
+                        
+                          <div class="form-group checkbox_questions">
+                            <label>
+                              <input name="age_decline" type="checkbox" value="decline_to_answer" class="icheck">DECLINE TO ANSWER
+                            </label>
+                          </div>
+                        
+                          <p>
+                            For this survey, “homelessness” means any time when you have been without a permanent and secure place to live, including sleeping in shelters, on the streets, or living temporarily with others without having your own permanent housing (e.g. couch surfing).
+                          </p>
+                        </div> 
+                        <div class="step">
+                          <div class="form-group">
+                            <label for="first_homeless_age"><h3>How old were you the first time you experienced homelessness?</h3></label>
+                            <input type="number" id="first_homeless_age" name="first_homeless_age" class="form-control" placeholder="Enter age" style="max-width: 200px;">
+                            <div class="checkbox-group">
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="first_homeless_unknown" value="dont_know"> DON’T KNOW
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="first_homeless_decline" value="decline"> DECLINE TO ANSWER
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="homelessness_duration"><h3>In total, for how much time have you experienced homelessness over the PAST YEAR?</h3></label>
+                            <div class="row">
+                              <div class="col-2">
+                                <input type="text" id="homelessness_duration" name="homelessness_duration" class="form-control" placeholder="Enter duration" style="max-width: 200px;">
+                              </div>
+                              <div class="col-3">
+                                <select id="duration_unit" name="duration_unit" class="form-control">
+                                  <option value="days">DAYS</option>
+                                  <option value="weeks">WEEKS</option>
+                                  <option value="months">MONTHS</option>
+                                </select>
+                              </div>
+                            </div>                                                  
+                            <div class="checkbox-group">
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="homelessness_unknown" value="dont_know"> DON’T KNOW
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="homelessness_decline" value="decline"> DECLINE TO ANSWER
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                        <!-- Question 5 -->
+                        <div class="step">
+                          <h3 class="main_question"><strong>5/10</strong>Have you stayed in a homeless shelter in the past year?</h3>
+                          <div class="form-group radio-group">
+                            <label class="radio-label">
+                              <input type="radio" name="shelter_stay" value="yes"> YES
+                            </label>
+                            <label class="radio-label">
+                              <input type="radio" name="shelter_stay" value="no"> NO
+                            </label>
+                            <label class="radio-label">
+                              <input type="radio" name="shelter_stay" value="dont_know"> DON’T KNOW
+                            </label>
+                            <label class="radio-label">
+                              <input type="radio" name="shelter_stay" value="decline"> DECLINE TO ANSWER
+                            </label>
+                          </div>
+                          <!-- Question 5b -->
+                          <h3 class="main_question">If not, what are the main reasons?</h3>
+                          <div class="form-group">
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="turned_away_full"> TURNED AWAY (SHELTERS ARE FULL)
+                              </label>
+                            </div>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="turned_away_banned"> TURNED AWAY (BANNED)
+                              </label>
+                            </div>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="lack_of_transport"> LACK OF TRANSPORTATION
+                              </label>
+                            </div>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="fear_for_safety"> FEAR FOR SAFETY
+                              </label>
+                            </div>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="bed_bugs"> BED BUGS & OTHER PESTS
+                              </label>
+                            </div>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="crowded"> CROWDED
+                              </label>
+                            </div>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="other"> OTHER:
+                                <input type="text" name="other_reason" class="form-control other-reason-input" placeholder="Please specify">
+                              </label>
+                            </div>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="dont_know"> DON’T KNOW
+                              </label>
+                            </div>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="reason_no_shelter" value="decline"> DECLINE TO ANSWER
+                              </label>
+                            </div>
+                          </div>
+                        </div> 
+                        <div class="step">
+                          <!-- Question 6 -->
+                          <div>
+                            <h3 class="main_question"> Did you come to Canada as an immigrant, refugee, or a refugee claimant?</h3>
+                            <div class="form-group radio-group">
+                              <label class="radio-label"><input type="radio" name="status_in_canada" value="immigrant"> YES, IMMIGRANT</label>
+                              <label class="radio-label"><input type="radio" name="status_in_canada" value="refugee"> YES, REFUGEE</label>
+                              <label class="radio-label"><input type="radio" name="status_in_canada" value="refugee_claimant"> YES, REFUGEE CLAIMANT</label>
+                              <label class="radio-label"><input type="radio" name="status_in_canada" value="no"> NO</label>
+                              <label class="radio-label"><input type="radio" name="status_in_canada" value="dont_know"> DON’T KNOW</label>
+                              <label class="radio-label"><input type="radio" name="status_in_canada" value="decline"> DECLINE TO ANSWER</label>
+                            </div>
+
+                            <div>
+                              <h3 class="main_question"> If YES, how long have you been in Canada?</h3>
+                              <div class="form-inline-group">
+                                <div class="form-group">
+                                  <input type="text" id="duration_in_canada" name="duration_in_canada" class="form-control" placeholder="Length (e.g., 2 YEARS)" style="max-width: 200px;">
+                                </div>
+                                <div class="form-group">
+                                  <label for="arrival_date">OR DATE:</label>
+                                  <input type="date" id="arrival_date" name="arrival_date" class="form-control" style="max-width: 200px;">
+                                </div>
+                              </div>
+                              <div class="checkbox-group">
+                                <label class="checkbox-label" style="margin-right: 10px;">
+                                  <input type="checkbox" name="length_unknown" value="dont_know"> DON’T KNOW
+                                </label>
+                                <label class="checkbox-label">
+                                  <input type="checkbox" name="length_decline" value="decline"> DECLINE TO ANSWER
+                                </label>
+                              </div>
+                            </div>
+
+                            <div>
+                              <h3 class="main_question"> Are you a Canadian Citizen?</h3>
+                              <div class="form-group radio-group">
+                                <label class="radio-label"><input type="radio" name="citizenship" value="yes"> YES</label>
+                                <label class="radio-label"><input type="radio" name="citizenship" value="no"> NO</label>
+                                <label class="radio-label"><input type="radio" name="citizenship" value="dont_know"> DON’T KNOW</label>
+                                <label class="radio-label"><input type="radio" name="citizenship" value="decline"> DECLINE TO ANSWER</label>
+                              </div>
+
+                              <div class="form-group conditional-group" id="non-citizen-options">
+                                <label for="non_citizen_status">If NO, please specify:</label>
+                                <select id="non_citizen_status" name="non_citizen_status" class="form-control" style="max-width: 400px;">
+                                  <option value="permanent_resident">PERMANENT RESIDENT</option>
+                                  <option value="refugee_claimant">REFUGEE CLAIMANT</option>
+                                  <option value="temporary_foreign_worker">TEMPORARY FOREIGN WORKER</option>
+                                  <option value="international_student">INTERNATIONAL STUDENT</option>
+                                  <option value="other">OTHER (PLEASE SPECIFY)</option>
+                                </select>
+                                <input type="text" name="other_status" class="form-control" placeholder="Please specify" style="max-width: 200px; display: none;">
+                              </div>                              
+                            </div>
+                          </div>
+
+                          <script>
+                            document.getElementById('non_citizen_status').addEventListener('change', function() {
+                              var otherInput = document.getElementsByName('other_status')[0];
+                              if(this.value === 'other') {
+                                otherInput.style.display = 'block';
+                              } else {
+                                otherInput.style.display = 'none';
+                              }
+                            });
+                          </script>
+
+                        </div> 
+                        <div class="step">
+                          <!-- Question 7a -->
+                          <div class="form-group">
+                            <label for="length_in_ottawa">How long have you been in Ottawa?</label>
+                            <input type="text" id="length_in_ottawa" name="length_in_ottawa" class="form-control" placeholder="Length" style="max-width: 200px;">
+                            <select id="duration_unit_ottawa" name="duration_unit_ottawa" class="form-control" style="max-width: 200px;">
+                              <option value="days">DAYS</option>
+                              <option value="weeks">WEEKS</option>
+                              <option value="months">MONTHS</option>
+                              <option value="years">YEARS</option>
+                            </select>
+                            <div class="checkbox-group" style="margin-top: 10px; text-align: left;">
+                              <label class="checkbox-label" style="display: inline-block; margin-right: 20px;">
+                                <input type="checkbox" name="always_in_ottawa" value="always_here"> ALWAYS BEEN HERE
+                              </label>
+                              <label class="checkbox-label" style="display: inline-block; margin-right: 20px;">
+                                <input type="checkbox" name="unknown_duration_ottawa" value="dont_know"> DON’T KNOW
+                              </label>
+                              <label class="checkbox-label" style="display: inline-block;">
+                                <input type="checkbox" name="decline_duration_ottawa" value="decline"> DECLINE TO ANSWER
+                              </label>
+                            </div>
+                          </div>
+
+                          <!-- Question 7b -->
+                          <div class="form-group">
+                            <label>Where did you live before you came here?</label>
+                            <input type="text" name="previous_city" class="form-control" placeholder="CITY" style="max-width: 300px;">
+                            <input type="text" name="previous_region" class="form-control" placeholder="PROVINCE/TERRITORY/COUNTRY" style="max-width: 300px;">
+                            <div class="checkbox-group" style="margin-top: 10px;">
+                              <label class="checkbox-label"><input type="checkbox" name="decline_previous_location" value="decline"> DECLINE TO ANSWER</label>
+                            </div>
+                          </div>
+
+                          <!-- Question 7c -->
+                          <div class="form-group">
+                            <label>What is the main reason you came to Ottawa?</label>
+                            <select id="reason_for_coming" name="reason_for_coming" class="form-control" style="max-width: 400px;">
+                              <option value="emergency_shelter">TO ACCESS EMERGENCY SHELTER(S)</option>
+                              <option value="services_and_supports">TO ACCESS SERVICES AND SUPPORTS</option>
+                              <option value="family_moved_here">FAMILY MOVED HERE</option>
+                              <option value="visit_friends_family">TO VISIT FRIENDS/FAMILY</option>
+                              <option value="find_housing">TO FIND HOUSING</option>
+                              <option value="employment_seeking">EMPLOYMENT (SEEKING)</option>
+                              <option value="employment_secured">EMPLOYMENT (SECURED)</option>
+                              <option value="attend_school">TO ATTEND SCHOOL</option>
+                              <option value="fear_for_safety">FEAR FOR SAFETY</option>
+                              <option value="recreation_shopping">RECREATION/SHOPPING</option>
+                              <option value="other">OTHER</option>
+                            </select>
+                            <input type="text" name="other_reason_for_coming" class="form-control" placeholder="Please specify" style="display: none; max-width: 300px; margin-bottom: 10px;">
+                            <div class="checkbox-group" style="margin-top: 10px; text-align: left;">
+                              <label class="checkbox-label" style="display: inline-block; margin-right: 20px;">
+                                <input type="checkbox" name="unknown_reason_for_coming" value="dont_know"> DON’T KNOW
+                              </label>
+                              <label class="checkbox-label" style="display: inline-block; margin-right: 20px;">
+                                <input type="checkbox" name="decline_reason_for_coming" value="decline"> DECLINE TO ANSWER
+                              </label>
+                            </div>
+                          </div>
+
+                          <script>
+                          // JavaScript to show/hide the 'other reason' input field based on the selected option
+                          document.getElementById('reason_for_coming').addEventListener('change', function() {
+                            var otherInput = document.getElementsByName('other_reason_for_coming')[0];
+                            if (this.value === 'other') {
+                              otherInput.style.display = 'block';
+                            } else {
+                              otherInput.style.display = 'none';
+                            }
+                          });
+                          </script>
+
+                        </div>
+                        <div class="step">
+                          <div class="form-group">
+                            <h3 class="main_question">Do you identify as First Nations, Inuit, or Métis, or do you have North American Indigenous ancestry?</h3>
+                            <label class="radio-label"><input type="radio" name="indigenous_identity" value="first_nations"> YES, FIRST NATIONS</label>
+                            <label class="radio-label"><input type="radio" name="indigenous_identity" value="inuit"> YES, INUIT</label>
+                            <label class="radio-label"><input type="radio" name="indigenous_identity" value="metis"> YES, MÉTIS</label>
+                            <label class="radio-label"><input type="radio" name="indigenous_identity" value="indigenous_ancestry"> YES, INDIGENOUS ANCESTRY</label>
+                            <label class="radio-label"><input type="radio" name="indigenous_identity" value="no"> NO</label>
+                            <label class="radio-label"><input type="radio" name="indigenous_identity" value="dont_know"> DON’T KNOW</label>
+                            <label class="radio-label"><input type="radio" name="indigenous_identity" value="decline"> DECLINE TO ANSWER</label>
+                          </div>
+                          <div class="form-group">
+                            <h3 class="main_question">In addition to your response in the question above, do you identify with any of the racial identities listed below?</h3>
+                            <div class="checkbox-group">
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="arab"> ARAB (e.g., Syrian, Egyptian, Yemeni)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="asian_east"> ASIAN-EAST (e.g., Chinese, Korean, Japanese)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="asian_southeast"> ASIAN- SOUTH-EAST (e.g., Filipino, Vietnamese, Cambodian)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="asian_south"> ASIAN-SOUTH OR INDO-CARIBBEAN (e.g., Indian, Pakistani)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="asian_west"> ASIAN-WEST (e.g., Iranian, Afghan)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="black_canadian_american"> BLACK-CANADIAN/AMERICAN</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="black_african"> BLACK-AFRICAN (e.g., Ghanaian, Ethiopian)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="black_afro_caribbean"> BLACK-AFRO-CARIBBEAN OR AFRO-LATINX (e.g., Jamaican, Haitian)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="latin_american"> LATIN AMERICAN (e.g., Brazilian, Mexican)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="white"> WHITE (e.g. European, French, Ukrainian)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="other"> NOT LISTED (PLEASE SPECIFY):</label>
+                              <input type="text" name="other_racial_identity" class="form-control" placeholder="Please specify" style="max-width: 300px; margin-top: 10px;">
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="indigenous_only"> IDENTIFY AS INDIGENOUS ONLY</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="dont_know"> DON’T KNOW</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="decline"> DECLINE TO ANSWER</label>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <h3 class="main_question">If you do identify as Indigenous, which Indigenous community are you from?</h3>
+                            <input type="text" name="indigenous_community" class="form-control" placeholder="Community / Reserve Name">
+                            <div class="checkbox-group">
+                              <label class="checkbox-label"><input type="checkbox" name="community_unknown" value="dont_know"> DON’T KNOW</label>
+                              <label class="checkbox-label"><input type="checkbox" name="community_decline" value="decline"> DECLINE TO ANSWER</label>
+                            </div>
+                          </div>                          
+                        </div>                                   
                         <div class="step">
                           <h3 class="main_question">
                             <strong>3/10</strong>
                           </h3>
                           <div class="container">
-                            <h2 class="survey-question">1. Do you have family members or anyone else who is staying with you tonight? / Did you have any family members or anyone else who stayed with you last night?</h2>
+                            <h3 class="survey-question">1. Do you have family members or anyone else who is staying with you tonight? / Did you have any family members or anyone else who stayed with you last night?</h3>
                             <form id="familyMembersForm">
                                 <div class="form-group">
                                     <label class="checkbox-inline">
@@ -264,7 +589,7 @@
                                         <input type="checkbox" name="family_members" value="Decline"> DECLINE TO ANSWER
                                     </label>
                                 </div>
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" id="family_table">
                                   <thead>
                                       <tr>
                                           <th scope="col">CHILD(REN)/DEPENDENT(S)</th>
@@ -300,7 +625,7 @@
                                             <input type="number" name="child_age_3" placeholder="Age">
                                         </td>
                                       </tr>
-                                      <tr>
+                                      <!-- <tr>
                                         <td>4</td>
                                         <td>
                                             <input type="text" name="child_gender_4" placeholder="Gender">
@@ -343,62 +668,48 @@
                                         </td>
                                         <td>
                                             <input type="number" name="child_age_8" placeholder="Age">
-                                        </td>
-                                      </tr>
+                                        </td> -->
+                                      <!-- </tr> -->
                                   </tbody>
                                 </table>
                                 <!-- Add button to dynamically add more children rows if needed -->
                                 <button type="button" id="addChildButton">Add Child</button>
                             </form>                    
-                        </div>
+                          </div>
+                        <!-- </div> -->
+                        <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                            var addChildButton = document.getElementById('addChildButton');
+                            if (addChildButton) {
+                                addChildButton.addEventListener('click', addChildRow);
+                            }
+                            function addChildRow() {
+                                var tableBody = document.querySelector("#family_table tbody");
+                                if (tableBody) {
+                                    var numChildren = tableBody.rows.length + 1;
+                                    var newRow = tableBody.insertRow();
+                                    newRow.innerHTML = `
+                                        <tr>
+                                        <td>${numChildren}</td>
+                                        <td>
+                                            <input type="text" name="child_gender_${numChildren}" placeholder="Gender">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="child_age_${numChildren}" placeholder="Age">
+                                        </td>
+                                        </tr>
+                                    `;
+                                } else {
+                                    console.error("Table body not found!");
+                                }
+                            }
+                          });
+                        </script>  
                         
-                          <!-- <div class="form-group radio_questions">
-                            <label
-                              >1. My budget is under $500
-                              <input
-                                name="question_1"
-                                type="radio"
-                                value="My budget is under $500"
-                                class="icheck required"
-                              />
-                            </label>
-                          </div>
-                          <div class="form-group radio_questions">
-                            <label
-                              >2. My budget is between $500 and $1000
-                              <input
-                                name="question_1"
-                                type="radio"
-                                value="My budget is between $500 and $1000"
-                                class="icheck required"
-                              />
-                            </label>
-                          </div>
-                          <div class="form-group radio_questions">
-                            <label
-                              >3. My budget is between $1000 and $1500
-                              <input
-                                name="question_1"
-                                type="radio"
-                                value="My budget is between $1000 and $1500"
-                                class="icheck required"
-                              />
-                            </label>
-                          </div>
-                          <div class="form-group radio_questions">
-                            <label
-                              >4. My budget is over $1500
-                              <input
-                                name="question_1"
-                                type="radio"
-                                value="My budget is over $1500"
-                                class="icheck required"
-                              />
-                            </label>
-                          </div>
-                        </div> -->
-                        <!-- /step 1-->
 
+                        <!-- /step 1 -->
+                        
+                        
                         <div class="step">
                           <h3 class="main_question">
                             <strong>4/10</strong>What your poject need?
@@ -968,7 +1279,7 @@
                           </div>
                         </div>
                         <!-- /step 4-->
-                      </div>
+                        </div>
                       <!-- /middle-wizard -->
                       <div id="bottom-wizard">
                         <button type="button" name="backward" class="backward">
@@ -1056,31 +1367,7 @@
     </div>
     <!-- /.modal -->
     <!-- Place this at the end of your HTML body, just before the closing </body> tag -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    var addChildButton = document.getElementById('addChildButton');
-    addChildButton.addEventListener('click', addChildRow);
-
-    function addChildRow() {
-        var tableBody = document.querySelector("#familyMembersForm tbody");
-        if (tableBody) {
-            var numChildren = tableBody.rows.length + 1;
-            var newRow = tableBody.insertRow();
-            newRow.innerHTML = `
-                <td>${numChildren}</td>
-                <td>
-                    <input type="text" name="child_gender_${numChildren}" placeholder="Gender">
-                </td>
-                <td>
-                    <input type="number" name="child_age_${numChildren}" placeholder="Age">
-                </td>
-            `;
-        } else {
-            console.error("Table body not found!");
-        }
-    }
-    });
-    </script>
+    
   
     <!-- SCRIPTS -->
     <!-- Jquery-->
