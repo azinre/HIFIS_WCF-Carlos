@@ -243,7 +243,7 @@
                         }
                         </script>
                         <!-- Question 1 --> 
-                        <div class="step">
+                        <!-- <div class="step">
                           <h3 class="main_question">
                             <strong>1/10</strong>
                           </h3>
@@ -302,9 +302,9 @@
                                         </td>
                                       </tr>
                                   </tbody>
-                                </table>
+                                </table> -->
                                 <!-- Add button to dynamically add more children rows if needed -->
-                                <button type="button" id="addChildButton">Add Child</button>
+                                <!-- <button type="button" id="addChildButton">Add Child</button>
                             </form>                    
                           </div> 
                         </div>                       
@@ -335,7 +335,7 @@
                                 }
                             }
                           });
-                        </script>  
+                        </script>   -->
                         <!-- Question 2 --> 
                         <div class="step">
                           <h3 class="main_question"><strong>Question 2</strong></h3>
@@ -665,9 +665,60 @@
                               <label class="checkbox-label" style="display: inline-block; margin-right: 20px;"><input type="checkbox" name="community_decline" value="decline"> DECLINE TO ANSWER</label>
                             </div>
                           </div>                          
-                        </div>                                   
+                        </div> 
+                        <!-- Question 9 -->                                  
+                        <div class="step">
+                          <div class="form-group">
+                            <h3 class="main_question">Have you ever served in the Canadian Military or RCMP?</h3>
+                            <div class="radio-group">
+                              <label class="radio-label">
+                                <input type="radio" name="military_service" value="military"> YES, MILITARY
+                              </label>
+                              <label class="radio-label">
+                                <input type="radio" name="military_service" value="rcmp"> YES, RCMP
+                              </label>
+                              <label class="radio-label">
+                                <input type="radio" name="military_service" value="both"> BOTH MILITARY AND RCMP
+                              </label>
+                              <label class="radio-label">
+                                <input type="radio" name="military_service" value="no"> NO
+                              </label>
+                              <label class="radio-label">
+                                <input type="radio" name="military_service" value="dont_know"> DON’T KNOW
+                              </label>
+                              <label class="radio-label">
+                                <input type="radio" name="military_service" value="decline"> DECLINE TO ANSWER
+                              </label>
+                            </div>
+                          </div>                          
+                        </div>
+                        <!-- Question 10 -->  
+                        <div class="step">
+                          <h3 class="main_question">As a child or youth, were you ever in foster care or in a youth group home?</h3>                        
+                          <div class="form-group radio-group">
+                            <label class="radio-label">
+                              <input type="radio" name="foster_care_experience" value="yes"> YES
+                            </label>
+                            <label class="radio-label">
+                              <input type="radio" name="foster_care_experience" value="no"> NO
+                            </label>
+                            <label class="radio-label">
+                              <input type="radio" name="foster_care_experience" value="dont_know"> DON’T KNOW
+                            </label>
+                            <label class="radio-label">
+                              <input type="radio" name="foster_care_experience" value="decline"> DECLINE TO ANSWER
+                            </label>
+                          </div>                       
+                          <div class="form-group">
+                            <h3 class="main_question">Approximately how long after leaving foster care/group home did you become homeless?</h3>
+                            <input type="text" name="time_after_foster_homelessness" class="form-control" placeholder="Enter duration" style="max-width: 200px;">
+                            <div class="checkbox-group" style="margin-top: 10px; text-align: left;">
+                              <label class="checkbox-label" style="display: inline-block; margin-right: 20px;"><input type="checkbox" name="unknown_time_after_foster" value="dont_know"> DON’T KNOW</label>
+                              <label class="checkbox-label" style="display: inline-block; margin-right: 20px;"><input type="checkbox" name="decline_time_after_foster" value="decline"> DECLINE TO ANSWER</label>
+                            </div>
+                          </div>
+                        </div>
                         
-
                         <!-- /step 1 -->
                         
                         
