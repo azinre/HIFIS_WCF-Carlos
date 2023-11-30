@@ -184,6 +184,7 @@
                             ></textarea>
                           </div>
                         </div>
+                        <!-- Question c -->
                         <div class="step">
                           <h3 class="main_question"><strong>2/10</strong>Current Accommodation</h3>
                           <h3>Where are you staying tonight? / Where did you stay last night (if surveyed on October 27th)?</h3>                      
@@ -240,7 +241,102 @@
                                 unsureLocationInput.style.display = 'none';
                             }
                         }
-                        </script> 
+                        </script>
+                        <!-- Question 1 --> 
+                        <div class="step">
+                          <h3 class="main_question">
+                            <strong>1/10</strong>
+                          </h3>
+                          <div class="container">
+                            <h3 class="survey-question">1. Do you have family members or anyone else who is staying with you tonight? / Did you have any family members or anyone else who stayed with you last night?</h3>
+                            <form id="familyMembersForm">
+                                <div class="form-group">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="family_members" value="None"> NONE
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="family_members" value="Partner"> PARTNER - Survey #:
+                                        <input type="text" name="partner_survey_number" maxlength="4">
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="family_members" value="OtherAdults"> OTHER ADULT(S)
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="family_members" value="Decline"> DECLINE TO ANSWER
+                                    </label>
+                                </div>
+                                <table class="table table-bordered" id="family_table">
+                                  <thead>
+                                      <tr>
+                                          <th scope="col">CHILD(REN)/DEPENDENT(S)</th>
+                                          <th scope="col">GENDER</th>
+                                          <th scope="col">AGE</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>1</td>
+                                          <td>
+                                              <input type="text" name="child_gender_1" placeholder="Gender">
+                                          </td>
+                                          <td>
+                                              <input type="number" name="child_age_1" placeholder="Age">
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <input type="text" name="child_gender_2" placeholder="Gender">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="child_age_2" placeholder="Age">
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>3</td>
+                                        <td>
+                                            <input type="text" name="child_gender_3" placeholder="Gender">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="child_age_3" placeholder="Age">
+                                        </td>
+                                      </tr>
+                                  </tbody>
+                                </table>
+                                <!-- Add button to dynamically add more children rows if needed -->
+                                <button type="button" id="addChildButton">Add Child</button>
+                            </form>                    
+                          </div> 
+                        </div>                       
+                        <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                            var addChildButton = document.getElementById('addChildButton');
+                            if (addChildButton) {
+                                addChildButton.addEventListener('click', addChildRow);
+                            }
+                            function addChildRow() {
+                                var tableBody = document.querySelector("#family_table tbody");
+                                if (tableBody) {
+                                    var numChildren = tableBody.rows.length + 1;
+                                    var newRow = tableBody.insertRow();
+                                    newRow.innerHTML = `
+                                        <tr>
+                                        <td>${numChildren}</td>
+                                        <td>
+                                            <input type="text" name="child_gender_${numChildren}" placeholder="Gender">
+                                        </td>
+                                        <td>
+                                            <input type="number" name="child_age_${numChildren}" placeholder="Age">
+                                        </td>
+                                        </tr>
+                                    `;
+                                } else {
+                                    console.error("Table body not found!");
+                                }
+                            }
+                          });
+                        </script>  
+                        <!-- Question 2 --> 
                         <div class="step">
                           <h3 class="main_question"><strong>Question 2</strong></h3>
                           <h3>How old are you? [OR] What year were you born? [If unsure, ask for best estimate]</h3>
@@ -271,6 +367,7 @@
                             For this survey, “homelessness” means any time when you have been without a permanent and secure place to live, including sleeping in shelters, on the streets, or living temporarily with others without having your own permanent housing (e.g. couch surfing).
                           </p>
                         </div> 
+                        <!-- Question 3,4 -->
                         <div class="step">
                           <div class="form-group">
                             <label for="first_homeless_age"><h3>How old were you the first time you experienced homelessness?</h3></label>
@@ -384,8 +481,8 @@
                             </div>
                           </div>
                         </div> 
+                        <!-- Question 6 -->
                         <div class="step">
-                          <!-- Question 6 -->
                           <div>
                             <h3 class="main_question"> Did you come to Canada as an immigrant, refugee, or a refugee claimant?</h3>
                             <div class="form-group radio-group">
@@ -453,6 +550,7 @@
                           </script>
 
                         </div> 
+                        <!-- Question 7 -->
                         <div class="step">
                           <!-- Question 7a -->
                           <div class="form-group">
@@ -527,6 +625,7 @@
                           </script>
 
                         </div>
+                        <!-- Question 8 -->
                         <div class="step">
                           <div class="form-group">
                             <h3 class="main_question">Do you identify as First Nations, Inuit, or Métis, or do you have North American Indigenous ancestry?</h3>
@@ -540,7 +639,7 @@
                           </div>
                           <div class="form-group">
                             <h3 class="main_question">In addition to your response in the question above, do you identify with any of the racial identities listed below?</h3>
-                            <div class="checkbox-group">
+                            <div class="checkbox-group" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="arab"> ARAB (e.g., Syrian, Egyptian, Yemeni)</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="asian_east"> ASIAN-EAST (e.g., Chinese, Korean, Japanese)</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="asian_southeast"> ASIAN- SOUTH-EAST (e.g., Filipino, Vietnamese, Cambodian)</label>
@@ -548,163 +647,25 @@
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="asian_west"> ASIAN-WEST (e.g., Iranian, Afghan)</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="black_canadian_american"> BLACK-CANADIAN/AMERICAN</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="black_african"> BLACK-AFRICAN (e.g., Ghanaian, Ethiopian)</label>
-                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="black_afro_caribbean"> BLACK-AFRO-CARIBBEAN OR AFRO-LATINX (e.g., Jamaican, Haitian)</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="latin_american"> LATIN AMERICAN (e.g., Brazilian, Mexican)</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="white"> WHITE (e.g. European, French, Ukrainian)</label>
+                              <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="black_afro_caribbean"> BLACK-AFRO-CARIBBEAN OR AFRO-LATINX (e.g., Jamaican, Haitian)</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="other"> NOT LISTED (PLEASE SPECIFY):</label>
-                              <input type="text" name="other_racial_identity" class="form-control" placeholder="Please specify" style="max-width: 300px; margin-top: 10px;">
+                              <input type="text" name="other_racial_identity" class="form-control" placeholder="Please specify" style="grid-column: span 2; max-width: 300px; margin-top: 10px;">
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="indigenous_only"> IDENTIFY AS INDIGENOUS ONLY</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="dont_know"> DON’T KNOW</label>
                               <label class="checkbox-label"><input type="checkbox" name="racial_identity" value="decline"> DECLINE TO ANSWER</label>
                             </div>
-                          </div>
+                          </div>                          
                           <div class="form-group">
                             <h3 class="main_question">If you do identify as Indigenous, which Indigenous community are you from?</h3>
                             <input type="text" name="indigenous_community" class="form-control" placeholder="Community / Reserve Name">
-                            <div class="checkbox-group">
-                              <label class="checkbox-label"><input type="checkbox" name="community_unknown" value="dont_know"> DON’T KNOW</label>
-                              <label class="checkbox-label"><input type="checkbox" name="community_decline" value="decline"> DECLINE TO ANSWER</label>
+                            <div class="checkbox-group"style="margin-top: 10px; text-align: left;">
+                              <label class="checkbox-label" style="display: inline-block; margin-right: 20px;"><input type="checkbox" name="community_unknown" value="dont_know"> DON’T KNOW</label>
+                              <label class="checkbox-label" style="display: inline-block; margin-right: 20px;"><input type="checkbox" name="community_decline" value="decline"> DECLINE TO ANSWER</label>
                             </div>
                           </div>                          
                         </div>                                   
-                        <div class="step">
-                          <h3 class="main_question">
-                            <strong>3/10</strong>
-                          </h3>
-                          <div class="container">
-                            <h3 class="survey-question">1. Do you have family members or anyone else who is staying with you tonight? / Did you have any family members or anyone else who stayed with you last night?</h3>
-                            <form id="familyMembersForm">
-                                <div class="form-group">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" name="family_members" value="None"> NONE
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" name="family_members" value="Partner"> PARTNER - Survey #:
-                                        <input type="text" name="partner_survey_number" maxlength="4">
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" name="family_members" value="OtherAdults"> OTHER ADULT(S)
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" name="family_members" value="Decline"> DECLINE TO ANSWER
-                                    </label>
-                                </div>
-                                <table class="table table-bordered" id="family_table">
-                                  <thead>
-                                      <tr>
-                                          <th scope="col">CHILD(REN)/DEPENDENT(S)</th>
-                                          <th scope="col">GENDER</th>
-                                          <th scope="col">AGE</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td>1</td>
-                                          <td>
-                                              <input type="text" name="child_gender_1" placeholder="Gender">
-                                          </td>
-                                          <td>
-                                              <input type="number" name="child_age_1" placeholder="Age">
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <td>2</td>
-                                        <td>
-                                            <input type="text" name="child_gender_2" placeholder="Gender">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="child_age_2" placeholder="Age">
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>3</td>
-                                        <td>
-                                            <input type="text" name="child_gender_3" placeholder="Gender">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="child_age_3" placeholder="Age">
-                                        </td>
-                                      </tr>
-                                      <!-- <tr>
-                                        <td>4</td>
-                                        <td>
-                                            <input type="text" name="child_gender_4" placeholder="Gender">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="child_age_4" placeholder="Age">
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>5</td>
-                                        <td>
-                                            <input type="text" name="child_gender_5" placeholder="Gender">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="child_age_5" placeholder="Age">
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>6</td>
-                                        <td>
-                                            <input type="text" name="child_gender_6" placeholder="Gender">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="child_age_6" placeholder="Age">
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>7</td>
-                                        <td>
-                                            <input type="text" name="child_gender_7" placeholder="Gender">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="child_age_7" placeholder="Age">
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>8</td>
-                                        <td>
-                                            <input type="text" name="child_gender_8" placeholder="Gender">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="child_age_8" placeholder="Age">
-                                        </td> -->
-                                      <!-- </tr> -->
-                                  </tbody>
-                                </table>
-                                <!-- Add button to dynamically add more children rows if needed -->
-                                <button type="button" id="addChildButton">Add Child</button>
-                            </form>                    
-                          </div>
-                        <!-- </div> -->
-                        <script>
-                          document.addEventListener('DOMContentLoaded', function() {
-                            var addChildButton = document.getElementById('addChildButton');
-                            if (addChildButton) {
-                                addChildButton.addEventListener('click', addChildRow);
-                            }
-                            function addChildRow() {
-                                var tableBody = document.querySelector("#family_table tbody");
-                                if (tableBody) {
-                                    var numChildren = tableBody.rows.length + 1;
-                                    var newRow = tableBody.insertRow();
-                                    newRow.innerHTML = `
-                                        <tr>
-                                        <td>${numChildren}</td>
-                                        <td>
-                                            <input type="text" name="child_gender_${numChildren}" placeholder="Gender">
-                                        </td>
-                                        <td>
-                                            <input type="number" name="child_age_${numChildren}" placeholder="Age">
-                                        </td>
-                                        </tr>
-                                    `;
-                                } else {
-                                    console.error("Table body not found!");
-                                }
-                            }
-                          });
-                        </script>  
                         
 
                         <!-- /step 1 -->
