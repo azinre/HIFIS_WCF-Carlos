@@ -1904,3 +1904,9 @@ blockquote.styled small:before {
   padding: 5px;
   box-sizing: border-box;
 }
+.input-age {
+  max-width: 200px;
+}
+.checkbox-group .checkbox {
+  margin-bottom: 10px;
+}
